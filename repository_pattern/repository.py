@@ -2,7 +2,13 @@ class NotFoundException(Exception):
     pass
 
 
-class LocalRepository:
+class Repository:
+    """Interface class"""
+    def get_user(self, id_):
+        raise NotImplementedError()
+
+
+class LocalRepository(Repository):
     def __init__(self, users):
         self._users = users
 
