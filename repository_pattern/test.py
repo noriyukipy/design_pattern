@@ -1,13 +1,14 @@
 import pytest
-from entity import User
+from entity import LocalUser
 from repository import LocalRepository
 from repository import NotFoundException
 
 
 def test_local_factory():
+    # Build factory
     users = [
-        User(id_=1, name="FirstUser"),
-        User(id_=2, name="SecondUser")
+        LocalUser(id_=1, name="FirstUser"),
+        LocalUser(id_=2, name="SecondUser")
     ]
     factory = LocalRepository(users=users)
 
