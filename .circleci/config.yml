@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: python:3.8.0-alpine3.10
+    steps:
+      - run: apk add --no-cache git
+      - checkout
+      - run: pip install pycodestyle==2.5.0 pytest==5.3.0
+      - run: pycodestyle .
+  test_small:
+    docker:
+      - image: python:3.8.0-alpine3.10
+    steps:
+      - run: apk add --no-cache git
+      - checkout
+      - run: pip install pytest==5.3.0
+      - run: pytest -v */*
